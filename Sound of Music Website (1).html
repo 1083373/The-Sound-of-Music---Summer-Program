@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>The Sound of Music – Summer Youth Production</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --primary: #2b5d7c;
+      --accent: #f4c95d;
+      --light: #f9fafb;
+      --dark: #1f2933;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background: #ffffff;
+    }
+    header {
+      background: linear-gradient(135deg, #23415a, #2b5d7c);
+      color: white;
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    header .nav {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    header h1 {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    nav a {
+      color: #e5f2ff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.95rem;
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    .hero {
+      background: url('https://images.pexels.com/photos/2102568/pexels-photo-2102568.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover no-repeat;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      padding: 5rem 1.5rem;
+    }
+    .hero-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: rgba(0,0,0,0.45);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      margin-bottom: 0.75rem;
+    }
+    .hero .tagline {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .hero .cta-group {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-decoration: none;
+      text-align: center;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #1b2730;
+      font-weight: 600;
+    }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      border: 1px solid #e5f2ff;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 3rem;
+    }
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--light);
+      border-radius: 10px;
+      padding: 1.25rem;
+      border: 1px solid #e5e7eb;
+    }
+    .card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      margin-top: 0.25rem;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #e5f2ff;
+      color: #123047;
+      font-size: 0.8rem;
+      margin-right: 0.4rem;
+      margin-top: 0.25rem;
+    }
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 0.75rem;
+    }
+    .info-row div {
+      min-width: 220px;
+    }
+    .highlight {
+      background: #fff7e6;
+      border-left: 4px solid var(--accent);
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      margin-top: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .legal-list li {
+      margin-bottom: 0.25rem;
+    }
+    form {
+      background: var(--light);
+      border-radius: 10px;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+    }
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      font-weight: 500;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #cbd2e1;
+      font-size: 0.95rem;
+      margin-bottom: 0.9rem;
+    }
+    .inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .inline > div {
+      flex: 1 1 180px;
+    }
+    .checkbox-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+    .checkbox-row input {
+      width: auto;
+      margin-top: 0.2rem;
+    }
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+    footer .inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .hero {
+        padding: 3.5rem 1rem;
+      }
+      .hero-inner {
+        padding: 1.5rem;
+      }
+      header .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 0.75rem;
+        margin-top: 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <h1>The Sound of Music – Summer Youth Production</h1>
+      <nav>
+        <a href="#overview">Overview</a>
+        <a href="#schedule">Dates</a>
+        <a href="#auditions">Auditions</a>
+        <a href="#details">Details</a>
+        <a href="#legal">Safety & Forms</a>
+        <a href="#signup">Register</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h2>Join our Summer Production of <em>The Sound of Music</em></h2>
+      <p class="tagline">A fun, supportive theatre experience for kids ages 8–14 in Kirkland, Washington.</p>
+      <p>
+        Over eight weeks, young performers will sing, act, and build confidence—ending in three fully staged performances
+        at the Juanita High School Performing Arts Center.
+      </p>
+      <div class="cta-group">
+        <a href="#signup" class="btn btn-primary">Register Now</a>
+        <a href="#overview" class="btn btn-outline">Learn More</a>
+      </div>
+      <div style="margin-top:1rem;font-size:0.9rem;">
+        <span class="pill">Ages 6–12</span>
+        <span class="pill">Kirkland, WA</span>
+        <span class="pill">Performances: July 18–19</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="overview">
+      <h3>Program overview</h3>
+      <p>
+        This is a youth production of <em>The Sound of Music</em> directed by Nell Henry (age 14) and Coraline Hewitt (age 13).
+        A chaparone will be present at all times.
+        The cast will be 25–35 students, primarily ages 6–12,
+        Rehearsals run three days a week for eight weeks and culminate in three performances at the
+        Juanita High School Performing Arts Center.
+      </p>
+      <div class="info-row">
+        <div>
+          <p><strong>Rehearsals:</strong> Local school multipurpose room or church hall in Kirkland (TBD)</p>
+          <p><strong>Performances:</strong> Juanita High School Performing Arts Center</p>
+        </div>
+        <div>
+          <h4>Who can participate?</h4>
+          <ul>
+            <li>Ages 6–12 (no prior experience required)</li>
+            <li>Students who enjoy singing, acting, or trying something new</li>
+            <li>Older teens may be invited for select adult roles or tech crew (TBD)</li>
+            <li>Auditions are required.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight">
+        This is a medium-level production: real sets, costumes, and props—but with a focus on learning,
+        teamwork, and fun rather than perfection.
+      </div>
+    </section>
+
+    <section id="schedule">
+      <h3>Key dates and schedule</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Auditions</h4>
+          <p><strong>Week of May 19–23</strong></p>
+          <ul>
+            <li>Short monologue (30–60 seconds)</li>
+            <li>Short song (30–60 seconds)</li>
+            <li>Auditions held in small groups (3–6 students)</li>
+          </ul>
+          <p style="font-size:0.9rem;margin-top:0.5rem;">
+            Exact audition times and sign-up link will be emailed after you register your interest.
+            No payment is required until after casting.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Rehearsal period</h4>
+          <p><strong>May 26 – July 19 (8 weeks)</strong></p>
+          <ul>
+            <li>Mondays: 4:00–6:30 PM</li>
+            <li>Wednesdays: 4:00–6:30 PM</li>
+            <li>Saturdays: 10:00 AM–2:00 PM</li>
+          </ul>
+          <p style="font-size:0.9rem;margin-top:0.5rem;">
+            Tech week is July 14–19, with additional time at the theatre for dress rehearsals and final run-throughs.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Performance weekend</h4>
+          <p><strong>Juanita High School PAC</strong></p>
+          <ul>
+            <li>Saturday, July 18 – 1:00 PM Matinee</li>
+            <li>Saturday, July 18 – 6:00 PM Evening Show</li>
+            <li>Sunday, July 19 – 1:00 PM Matinee</li>
+          </ul>
+          <p style="font-size:0.9rem;margin-top:0.5rem;">
+            Families, friends, and community members are all welcome to attend.
+            Tickets are 20 dollars each.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="auditions">
+      <h3>What auditions look like</h3>
+      <p>
+        Auditions are designed to be low-stress and supportive. We want to see each child’s personality,
+        willingness to try, and comfort on stage—not perfection.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h4>What to prepare</h4>
+          <ul>
+            <li>30–60 second monologue (can be from a play, book, or memorized story)</li>
+            <li>30–60 second song (musical theatre, folk song, or any age-appropriate piece)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>During the audition</h4>
+          <ul>
+            <li>Students audition in groups of 3–6</li>
+            <li>Each group has about 30 minutes</li>
+            <li>Simple movement or acting games may be included</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>After auditions</h4>
+          <ul>
+            <li>Cast list emailed to families</li>
+            <li>Rehearsal schedule and materials shared</li>
+            <li>All registered students will be considered for a role or ensemble</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="details">
+      <h3>Production details</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Sets & costumes</h4>
+          <ul>
+            <li>Medium-level sets built by the production team</li>
+            <li>Thrifted and simply sewn costumes for all main groups</li>
+            <li>Organized costume racks and quick-change areas backstage</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Props & tech</h4>
+          <ul>
+            <li>Lightweight, safe props (lantern, guitar, whistle, suitcases, etc.)</li>
+            <li>Student tech crew for lights, sound, props, and costumes</li>
+            <li>Clearly labeled prop tables and backstage organization</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Supervision & staffing</h4>
+          <ul>
+            <li>At least one adult supervisor at all rehearsals</li>
+            <li>Two adults backstage during performances</li>
+            <li>Student stage manager and assistant director roles</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight">
+        Tuition and exact fees will be shared in the registration confirmation email.
+        Financial questions are always welcome—please reach out if cost is a concern.
+      </div>
+    </section>
+
+    <section id="legal">
+      <h3>Safety, forms, and legal basics</h3>
+      <p>
+        This program follows standard youth theatre practices to keep students safe and to respect
+        the rights of the creators of <em>The Sound of Music</em>.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h4>Licensing & rights</h4>
+          <ul class="legal-list">
+            <li>Official performance license obtained from the rights holder.</li>
+            <li>Approved script and score are used.</li>
+            <li>No major changes to plot or lyrics without permission.</li>
+            <li>No recording or livestreaming of full performances unless allowed by the license.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Required forms for each student</h4>
+          <ul class="legal-list">
+            <li><strong>Registration form</strong> – basic contact information.</li>
+            <li><strong>Medical/emergency form</strong> – allergies and emergency instructions.</li>
+            <li><strong>Media/photo release</strong> – permission to use photos for marketing and cast sharing.</li>
+          </ul>
+          <p style="font-size:0.9rem;margin-top:0.5rem;">
+            These can be completed online and will be sent to you after you submit the registration form below.
+          </p>
+        </div>
+        <div class="card">
+          <h4>Safety & venue</h4>
+          <ul class="legal-list">
+            <li>Sign-in/sign-out system so children leave only with an approved adult.</li>
+            <li>First aid kit on site; emergency contacts kept on file.</li>
+            <li>All Juanita PAC safety and fire rules are followed.</li>
+            <li>Chaparone on site at all times.</li>
+            <li>Event insurance may be carried if required by the school district.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="signup">
+      <h3>Register your child</h3>
+      <p>
+        Please complete this interest/registration form. This does not obligate you to participate,
+        but it reserves your spot while we confirm details like final tuition and rehearsal location.
+        You will receive a follow-up email with payment information and official forms.
+      </p>
+
+      <!-- NOTE: Replace the action URL with your form handler (Google Forms, Formspree, etc.) -->
+      <form action="#" method="post">
+        <div class="inline">
+          <div>
+            <label for="child-name">Child's full name</label>
+            <input type="text" id="child-name" name="child_name" required />
+          </div>
+          <div>
+            <label for="child-age">Child's age</label>
+            <input type="number" id="child-age" name="child_age" min="8" max="18" required />
+          </div>
+        </div>
+
+        <div class="inline">
+          <div>
+            <label for="parent-name">Parent/guardian name</label>
+            <input type="text" id="parent-name" name="parent_name" required />
+          </div>
+          <div>
+            <label for="parent-email">Parent/guardian email</label>
+            <input type="email" id="parent-email" name="parent_email" required />
+          </div>
+        </div>
+
+        <div class="inline">
+          <div>
+            <label for="parent-phone">Parent/guardian phone</label>
+            <input type="tel" id="parent-phone" name="parent_phone" required />
+          </div>
+          <div>
+            <label for="emergency-contact">Emergency contact (if different)</label>
+            <input type="text" id="emergency-contact" name="emergency_contact" />
+          </div>
+        </div>
+
+        <label for="allergies">Allergies or medical considerations (brief)</label>
+        <textarea id="allergies" name="allergies" rows="3" placeholder="Optional, but helpful for planning."></textarea>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="media-consent" name="media_consent" />
+          <label for="media-consent">
+            I give permission for my child to be photographed during rehearsals and performances, and for those photos
+            to be used in production materials and shared with participating families.
+          </label>
+        </div>
+
+        <div class="checkbox-row">
+          <input type="checkbox" id="info-consent" name="info_consent" required />
+          <label for="info-consent">
+            I understand that I will receive additional forms (medical/emergency and full registration) and that my
+            child’s participation is confirmed once those are completed and any required tuition is paid.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Registration</button>
+      </form>
+
+      <p style="font-size:0.9rem;margin-top:0.75rem;">
+        Have questions before registering? Email us at
+        <strong>1083373@lwsd.org (Nell Henry) and 1073196@lwsd.org (Coraline Hewitt) </strong>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="inner">
+      <div>
+        &copy; <span id="year"></span> The Sound of Music – Summer Youth Production, Kirkland, WA.
+      </div>
+      <div>
+        Schedule and details subject to minor changes; families will be notified of any updates by email.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
